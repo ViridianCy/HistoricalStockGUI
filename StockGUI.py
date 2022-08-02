@@ -34,7 +34,6 @@ class Form(QDialog):
     def getInfo(self):
  
         stock_data = pdr.DataReader(self.lineEditTicker.text(), 'yahoo', start=self.lineEditDate.text(), end=self.lineEditDate.text())
-        print(stock_data)
         sdt = '${:.2f}'.format(stock_data[self.lineEditCategory.text()][0])
        
         output = QtWidgets.QLabel(str(sdt))
@@ -43,9 +42,6 @@ class Form(QDialog):
         self.displayWindow.setWindowTitle(self.lineEditTicker.text() + " " +  self.lineEditCategory.text())
        
         self.displayWindow.showWindow()
- 
-        print(type(self.lineEditTicker.text()))
-        print(self.lineEditTicker.text())
        
     def createForm(self):
  
