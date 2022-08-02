@@ -38,11 +38,10 @@ class Form(QDialog):
        
         output = QtWidgets.QLabel(str(sdt))
         self.displayWindow.text.setText(output.text())
+ 
+        self.displayWindow.setWindowTitle(self.lineEditTicker.text() + " " +  self.lineEditCategory.text())
        
         self.displayWindow.showWindow()
- 
-        print(type(self.lineEditTicker.text()))
-        print(self.lineEditTicker.text())
        
     def createForm(self):
  
@@ -54,13 +53,15 @@ class Form(QDialog):
  
         self.formGroupBox.setLayout(layout)
  
+ 
 class MyWidget(QtWidgets.QWidget):
     def __init__(self):
         super().__init__()
  
-        self.text = QLabel("", alignment=QtCore.Qt.AlignCenter)
+        self.text = QLabel("", alignment=QtCore.Qt.AlignCenter)  
         self.layout = QtWidgets.QVBoxLayout(self)
         self.layout.addWidget(self.text)
+       
  
    
     def showWindow(self):
@@ -69,6 +70,7 @@ class MyWidget(QtWidgets.QWidget):
  
 if __name__ == "__main__":
     app = QtWidgets.QApplication([])
+ 
  
     form = Form()
     form.resize(900, 700)
